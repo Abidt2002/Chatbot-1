@@ -77,12 +77,30 @@ function fuzzyScore(input, target) {
     return matchCount / inputTokens.length;
 }
 
+// Dynamic polite fallback responses
+function getFallbackResponse() {
+    const fallbacks = [
+        "I'm sorry, I don't have information about that yet.",
+        "Could you rephrase your question? I’ll try to understand better.",
+        "That’s an interesting question! Let me connect you with our team for more details.",
+        "Hmm… I don’t have that answer right now, but you can contact us at info@devbay.ai.",
+        "Sorry, I didn’t quite get that — please ask something related to DevBay or its services."
+    ];
+    return fallbacks[Math.floor(Math.random() * fallbacks.length)];
+}
+
 function findAnswer(query) {
-    let bestMatch = { score: 0, answer: "Sorry, I don't understand your question." };
+    let bestMatch = { score: 0, answer: getFallbackResponse() };
     qaPairs.forEach(pair => {
         const score = fuzzyScore(query, pair.q);
         if (score > bestMatch.score) bestMatch = { score, answer: pair.a };
     });
+
+    // if the best score is too low, fallback
+    if (bestMatch.score < 0.4) {
+        bestMatch.answer = getFallbackResponse();
+    }
+
     return bestMatch.answer;
 }
 
@@ -96,7 +114,7 @@ function typeAnswer(text, element) {
         element.innerHTML += text.charAt(i);
         i++;
 
-        // Smooth scroll as each character is added
+        // Always scroll down as new text appears
         chatBox.scrollTop = chatBox.scrollHeight;
 
         if (i >= text.length) clearInterval(interval);
@@ -143,6 +161,9 @@ submitBtn.addEventListener("click", () => {
 
     typeAnswer(answerText, botDiv);
 
+    // Scroll smoothly to the latest message
+    chatBox.scrollTop = chatBox.scrollHeight;
+
     inputBox.value = "";
     inputBox.focus();
 });
@@ -150,5 +171,6 @@ submitBtn.addEventListener("click", () => {
 inputBox.addEventListener("keypress", (e) => {
     if (e.key === "Enter") submitBtn.click();
 });
+
 
 
