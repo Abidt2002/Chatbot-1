@@ -86,14 +86,20 @@ function findAnswer(query) {
     return bestMatch.answer;
 }
 
+// ========================
+// Typewriter + smooth scroll
+// ========================
 function typeAnswer(text, element) {
     element.innerHTML = "";
     let i = 0;
     const interval = setInterval(() => {
         element.innerHTML += text.charAt(i);
         i++;
+
+        // Smooth scroll as each character is added
+        chatBox.scrollTop = chatBox.scrollHeight;
+
         if (i >= text.length) clearInterval(interval);
-        chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll while typing
     }, 25);
 }
 
@@ -112,7 +118,7 @@ const closeBtn = document.getElementById("close-chat");
 // ========================
 chatbotBtn.addEventListener("click", () => {
     chatbotContainer.style.display = "flex";
-    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom when opened
+    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom on open
 });
 closeBtn.addEventListener("click", () => { chatbotContainer.style.display = "none"; });
 
@@ -144,4 +150,5 @@ submitBtn.addEventListener("click", () => {
 inputBox.addEventListener("keypress", (e) => {
     if (e.key === "Enter") submitBtn.click();
 });
+
 
