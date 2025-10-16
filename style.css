@@ -57,30 +57,34 @@ body {
   padding: 12px;
   overflow-y: auto;
   background: #f9fafb;
+  display: flex;
+  flex-direction: column;
 }
 
 /* --- Messages --- */
 .message {
-  max-width: 90%;
-  margin: 8px 0;
+  max-width: 85%;
+  margin: 6px 8px;
   padding: 10px 14px;
-  border-radius: 10px;
+  border-radius: 15px;
   line-height: 1.4;
   word-wrap: break-word;
   font-size: 15px;
+  align-self: flex-start;  /* ✅ both on left side */
 }
 
-/* ✅ Both user and bot messages on the LEFT side */
-.message.user {
-  background: #e5e7eb;
-  align-self: flex-start;
-  color: #111827;
-}
-
+/* ✅ BOT message (blue) */
 .message.bot {
   background: #2563eb;
-  color: white;
-  align-self: flex-start;
+  color: #fff;
+  border-bottom-left-radius: 0;
+}
+
+/* ✅ USER message (gray) */
+.message.user {
+  background: #e5e7eb;
+  color: #111827;
+  border-bottom-left-radius: 0;
 }
 
 /* --- Input Area --- */
@@ -108,5 +112,6 @@ body {
 #send-btn:hover {
   background: #1e40af;
 }
+
 
 
