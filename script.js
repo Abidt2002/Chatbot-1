@@ -93,6 +93,7 @@ function typeAnswer(text, element) {
         element.innerHTML += text.charAt(i);
         i++;
         if (i >= text.length) clearInterval(interval);
+        chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll while typing
     }, 25);
 }
 
@@ -109,7 +110,10 @@ const closeBtn = document.getElementById("close-chat");
 // ========================
 // Chat Popup Toggle
 // ========================
-chatbotBtn.addEventListener("click", () => { chatbotContainer.style.display = "flex"; });
+chatbotBtn.addEventListener("click", () => {
+    chatbotContainer.style.display = "flex";
+    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom when opened
+});
 closeBtn.addEventListener("click", () => { chatbotContainer.style.display = "none"; });
 
 // ========================
@@ -119,19 +123,25 @@ submitBtn.addEventListener("click", () => {
     const userText = inputBox.value.trim();
     if (!userText) return;
 
+    // User message
     const userDiv = document.createElement("div");
     userDiv.className = "userMsg";
     userDiv.textContent = userText;
     chatBox.appendChild(userDiv);
 
+    // Bot response
     const answerText = findAnswer(userText);
     const botDiv = document.createElement("div");
     botDiv.className = "botMsg";
     chatBox.appendChild(botDiv);
+
     typeAnswer(answerText, botDiv);
 
     inputBox.value = "";
-    chatBox.scrollTop = chatBox.scrollHeight;
+    inputBox.focus();
 });
 
-inputBox.addEventListener("keypress", (e) => { if (e.key === "Enter") submitBtn.click(); });
+inputBox.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") submitBtn.click();
+});
+
