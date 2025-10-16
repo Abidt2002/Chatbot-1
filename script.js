@@ -37,12 +37,15 @@ const qaPairs = [
   { q: "Does DevBay sign NDA?", a: "Yes, to protect client data and ideas."},
 
   // --- Projects ---
-  { q: "What is Malfex?", a: "PROJECT ORIGIN: DUBAI, UAE - Malfex is a groundbreaking forex trading platform with zero trading fees and a user-friendly interface."},
-  { q: "What is CSD?", a: "PROJECT ORIGIN: ISLAMABAD/RAWALPINDI, PAKISTAN - CSD is a large retail store implementing e-commerce and retail management systems."},
-  { q: "What is Dialboxx?", a: "PROJECT ORIGIN: KARACHI, PAKISTAN - Dialboxx is a localized Shopify-like platform for Pakistani entrepreneurs."},
-  { q: "What is Craftsconnect?", a: "PROJECT ORIGIN: TORONTO, CANADA - Craftsconnect connects users with home service providers easily."},
-  { q: "What is Mr Daze?", a: "PROJECT ORIGIN: RIYADH, SAUDI ARABIA - On-demand delivery app for perishable and fragile goods."},
-  { q: "What is Kryptoconnect?", a: "PROJECT ORIGIN: BOSTON, USA - Kryptoconnect streamlines cryptocurrency portfolio management and P2P trading."},
+  { q: "What services does DevBay offer?", a: "DevBay offers a complete range of IT and AI-driven services, including Web, App, and Software Development, Cloud Solutions, Data Analytics, and Cybersecurity. The company also provides ready-made IT systems such as CRM, ERP, LMS, HMS, SMS, and RMS, empowering businesses with smart, scalable, and high-performance digital solutions."},
+  { q: "What is Web Development?", a: "At DevBay, we empower businesses with intelligent and beautifully designed web solutions. Our focus is on seamless design, smooth performance, and creating a lasting impact for every client. Because we believe your success starts with a strong, smart, and scalable digital presence."},
+  { q: "What is App Development?", a: "Your app is more than just software — it’s your brand in the palm of your user’s hand. At DevBay, we create mobile applications that blend innovation with impact, ensuring smooth performance, elegant design, and real-world functionality. Whether you need a startup MVP or an enterprise-grade app, we deliver mobile solutions that scale with your business."},
+  { q: "What is Software Development?", a: "Every business deserves software that works for them — not against them. At DevBay, we craft intelligent, user-friendly, and secure software solutions that drive productivity and growth. Whether it’s ERP, CRM, or a complete digital transformation, we deliver technology built to adapt, perform, and evolve with your business."},
+  { q: "What is Data Analytics?", a: "Every number tells a story — and at DevBay, we help you understand it. Our team specializes in collecting, analyzing, and visualizing complex data to reveal patterns that drive success. Whether it’s optimizing performance, forecasting demand, or improving customer experience, our analytics solutions give you the clarity to act with confidence."},
+  { q: "What is Cloud Solutions?", a: "The future of business is in the cloud — and DevBay makes that future seamless. We provide tailored cloud solutions that enable you to store, scale, and access data effortlessly while maintaining top-tier security and performance. Whether you need hybrid, private, or public cloud services, we ensure your organization stays agile, connected, and ready for growth."},
+  { q: "What is Cyber Security?", a: "At DevBay, we protect what matters most — your data, your systems, and your reputation. Our comprehensive cybersecurity solutions safeguard your digital assets from evolving threats through advanced threat detection, network security, and data protection strategies. We don’t just defend; we build resilience — ensuring your business operates with confidence in a secure digital environment."},
+  { q: "Does DevBay build AI chatbots?", a: "Yes, intelligent chatbots using NLP and RAG systems."},
+  { q: "Does DevBay provide SEO?", a: "Yes, to improve online visibility and traffic."},
 
   // --- Ready-Made Solutions ---
   { q: "Tell me about DevBay ready-made solutions?", a: "DevBay’s Ready-Made Solutions are fully developed IT systems for CRM, ERP, LMS, HMS, SMS, RMS, etc."},
