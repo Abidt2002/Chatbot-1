@@ -83,109 +83,77 @@ const qaData = [
 // Helper Functions
 // ========================
 function normalize(text) {
-  return String(text || "").toLowerCase().replace(/[^\w\s]/gi, "").trim();
+    return text.toLowerCase().replace(/[^\w\s]/gi, "").trim();
 }
 
 function fuzzyScore(input, target) {
-  input = normalize(input);
-  target = normalize(target);
-  if (!input) return 0;
-  if (target.includes(input)) return 1;
-  const inputTokens = input.split(/\s+/);
-  const targetTokens = target.split(/\s+/);
-  let matchCount = 0;
-  inputTokens.forEach(t => { if (targetTokens.includes(t)) matchCount++; });
-  return matchCount / Math.max(1, inputTokens.length);
-}
+    input = normalize(input);
+    target = normalize(target);
 
-function getFallbackResponse() {
-  const fallbacks = [
-    "I'm sorry, I don't have information about that yet.",
-    "Could you rephrase your question? I’ll try to understand better.",
-    "That’s an interesting question! Please contact info@devbay.ai for more details.",
-    "I don’t have that on file — try asking about our services, products, or projects."
-  ];
-  return fallbacks[Math.floor(Math.random() * fallbacks.length)];
+    if (target.includes(input)) return 1;
+    const inputTokens = input.split(" ");
+    const targetTokens = target.split(" ");
+    let matchCount = 0;
+    inputTokens.forEach(t => { if (targetTokens.includes(t)) matchCount++; });
+    return matchCount / inputTokens.length;
 }
 
 function findAnswer(query) {
-  let best = { score: 0, answer: null };
-  qaData.forEach(item => {
-    const score = fuzzyScore(query, item.q);
-    if (score > best.score) best = { score, answer: item.a };
-  });
-  if (best.score < 0.35) return getFallbackResponse();
-  return best.answer;
+    let bestMatch = { score: 0, answer: "Sorry, I don't understand your question." };
+    qaPairs.forEach(pair => {
+        const score = fuzzyScore(query, pair.q);
+        if (score > bestMatch.score) bestMatch = { score, answer: pair.a };
+    });
+    return bestMatch.answer;
+}
+
+function typeAnswer(text, element) {
+    element.innerHTML = "";
+    let i = 0;
+    const interval = setInterval(() => {
+        element.innerHTML += text.charAt(i);
+        i++;
+        if (i >= text.length) clearInterval(interval);
+    }, 25);
 }
 
 // ========================
 // DOM Elements
 // ========================
-const chatArea = document.getElementById("chat-area");
-const userInput = document.getElementById("user-input");
-const sendBtn = document.getElementById("send-btn");
-const chatbotBox = document.getElementById("chatbot-box");
-const chatbotToggle = document.getElementById("chatbot-toggle");
+const inputBox = document.getElementById("userInput");
+const submitBtn = document.getElementById("sendBtn");
+const chatBox = document.getElementById("chat-body");
+const chatbotBtn = document.getElementById("chatbot-btn");
+const chatbotContainer = document.getElementById("chatbot-container");
+const closeBtn = document.getElementById("close-chat");
 
 // ========================
-// Chatbot Toggle (Popup)
+// Chat Popup Toggle
 // ========================
-chatbotToggle.addEventListener("click", () => {
-  const isVisible = chatbotBox.style.display === "flex";
-  chatbotBox.style.display = isVisible ? "none" : "flex";
-  if (!isVisible) {
-    setTimeout(() => chatArea.scrollTop = chatArea.scrollHeight, 100);
-  }
+chatbotBtn.addEventListener("click", () => { chatbotContainer.style.display = "flex"; });
+closeBtn.addEventListener("click", () => { chatbotContainer.style.display = "none"; });
+
+// ========================
+// Send Message
+// ========================
+submitBtn.addEventListener("click", () => {
+    const userText = inputBox.value.trim();
+    if (!userText) return;
+
+    const userDiv = document.createElement("div");
+    userDiv.className = "userMsg";
+    userDiv.textContent = userText;
+    chatBox.appendChild(userDiv);
+
+    const answerText = findAnswer(userText);
+    const botDiv = document.createElement("div");
+    botDiv.className = "botMsg";
+    chatBox.appendChild(botDiv);
+    typeAnswer(answerText, botDiv);
+
+    inputBox.value = "";
+    chatBox.scrollTop = chatBox.scrollHeight;
 });
 
-// ========================
-// Message Handling
-// ========================
-function appendMessage(text, sender) {
-  const div = document.createElement("div");
-  div.className = `message ${sender}`;
-  div.textContent = text;
-  chatArea.appendChild(div);
-  chatArea.scrollTop = chatArea.scrollHeight;
-}
-
-function botReply(text) {
-  const div = document.createElement("div");
-  div.className = "message bot";
-  chatArea.appendChild(div);
-  let i = 0;
-  const speed = 22; // typing speed (ms)
-  const interval = setInterval(() => {
-    div.textContent += text.charAt(i) || "";
-    i++;
-    chatArea.scrollTop = chatArea.scrollHeight; // always scroll to bottom
-    if (i > text.length) clearInterval(interval);
-  }, speed);
-}
-
-// ========================
-// Send Message Function
-// ========================
-function sendMessage() {
-  const txt = (userInput.value || "").trim();
-  if (!txt) return;
-  appendMessage(txt, "user");
-  userInput.value = "";
-  userInput.focus();
-
-  setTimeout(() => {
-    const ans = findAnswer(txt);
-    botReply(ans);
-  }, 400);
-}
-
-sendBtn.addEventListener("click", sendMessage);
-userInput.addEventListener("keypress", (e) => { 
-  if (e.key === "Enter") sendMessage();
-});
-
-// ========================
-// Default State
-// ========================
-if (!chatbotBox.style.display) chatbotBox.style.display = "none";
+inputBox.addEventListener("keypress", (e) => { if (e.key === "Enter") submitBtn.click(); });
 
