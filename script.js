@@ -1,7 +1,7 @@
 // ========================
-// Full DevBay Q&A Dataset (complete Ready-Made items fixed)
+// Full Q&A Pairs (250 items)
 // ========================
-const qaData = [
+const qaPairs = [
   { q: "what is devbay", a: "DevBay Technologies is a global IT company that builds modern digital solutions, software, and automation systems to empower businesses worldwide." },
   { q: "where is devbay located", a: "DevBay operates globally with key offices in Pakistan, the Middle East, the United Kingdom, and North America." },
   { q: "what services devbay provide", a: "DevBay offers App Development, Software Development, Data Analysis, Cyber Security, Cloud Solutions, SEO, Call Center Services, and Game Development." },
