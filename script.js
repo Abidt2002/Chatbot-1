@@ -1,174 +1,183 @@
 // ========================
-// DevBay Chatbot Dataset
+// Full DevBay Q&A Dataset (complete Ready-Made items fixed)
 // ========================
-const qaPairs = [
- { q: "what is devbay", a: "DevBay Technologies is a global IT company that builds modern digital solutions, software, and automation systems to empower businesses worldwide." },
+const qaData = [
+  { q: "what is devbay", a: "DevBay Technologies is a global IT company that builds modern digital solutions, software, and automation systems to empower businesses worldwide." },
   { q: "where is devbay located", a: "DevBay operates globally with key offices in Pakistan, the Middle East, the United Kingdom, and North America." },
   { q: "what services devbay provide", a: "DevBay offers App Development, Software Development, Data Analysis, Cyber Security, Cloud Solutions, SEO, Call Center Services, and Game Development." },
-  { q: "Who is the CEO of DevBay?", a: "CEO: Azam Khan, COO: Arham Hashmi — leaders in technology and innovation."},
-  { q: "What is DevBay mission?", a: "Devbay was founded with a vision to build revolutionary technology applications capable of significantly enhancing efficiency through automation and seamless customer engagement."},
-  { q: "What is DevBay vision?", a: "Become a global leader in intelligent automation and enterprise technology services."},
-  { q: "What is DevBay contact email?", a: "info@devbay.ai"},
-  { q: "What is DevBay phone number?", a: "+92 300 1234567"},
-  { q: "Does DevBay work with startups?", a: "Yes, with flexible pricing and rapid MVP development."},
+  { q: "who is the ceo of devbay", a: "CEO: Azam Khan, COO: Arham Hashmi — leaders in technology and innovation." },
+  { q: "what is devbay mission", a: "Devbay was founded with a vision to build revolutionary technology applications capable of significantly enhancing efficiency through automation and seamless customer engagement." },
+  { q: "what is devbay vision", a: "Become a global leader in intelligent automation and enterprise technology services." },
+  { q: "what is devbay contact email", a: "info@devbay.ai" },
+  { q: "what is devbay phone number", a: "+92 300 1234567" },
+  { q: "does devbay work with startups", a: "Yes, with flexible pricing and rapid MVP development." },
 
-    // ------------------- Services -------------------
-  { q: "What services does DevBay offer?", a: "DevBay offers a complete range of IT and AI-driven services, including Web, App, and Software Development, Cloud Solutions, Data Analytics, and Cybersecurity. The company also provides ready-made IT systems such as CRM, ERP, LMS, HMS, SMS, and RMS, empowering businesses with smart, scalable, and high-performance digital solutions."},
-  { q: "What is Web Development?", a: "At DevBay, we empower businesses with intelligent and beautifully designed web solutions. Our focus is on seamless design, smooth performance, and creating a lasting impact for every client. Because we believe your success starts with a strong, smart, and scalable digital presence."},
-  { q: "What is App Development?", a: "Your app is more than just software — it’s your brand in the palm of your user’s hand. At DevBay, we create mobile applications that blend innovation with impact, ensuring smooth performance, elegant design, and real-world functionality. Whether you need a startup MVP or an enterprise-grade app, we deliver mobile solutions that scale with your business."},
-  { q: "What is Software Development?", a: "Every business deserves software that works for them — not against them. At DevBay, we craft intelligent, user-friendly, and secure software solutions that drive productivity and growth. Whether it’s ERP, CRM, or a complete digital transformation, we deliver technology built to adapt, perform, and evolve with your business."},
-  { q: "What is Data Analytics?", a: "Every number tells a story — and at DevBay, we help you understand it. Our team specializes in collecting, analyzing, and visualizing complex data to reveal patterns that drive success. Whether it’s optimizing performance, forecasting demand, or improving customer experience, our analytics solutions give you the clarity to act with confidence."},
-  { q: "What is Cloud Solutions?", a: "The future of business is in the cloud — and DevBay makes that future seamless. We provide tailored cloud solutions that enable you to store, scale, and access data effortlessly while maintaining top-tier security and performance. Whether you need hybrid, private, or public cloud services, we ensure your organization stays agile, connected, and ready for growth."},
-  { q: "What is Cyber Security?", a: "At DevBay, we protect what matters most — your data, your systems, and your reputation. Our comprehensive cybersecurity solutions safeguard your digital assets from evolving threats through advanced threat detection, network security, and data protection strategies. We don’t just defend; we build resilience — ensuring your business operates with confidence in a secure digital environment."},
-  { q: "Does DevBay build AI chatbots?", a: "Yes, intelligent chatbots using NLP and RAG systems."},
-  { q: "Does DevBay provide SEO?", a: "Yes, to improve online visibility and traffic."},
+  // ------------------- Services -------------------
+  { q: "what services does devbay offer", a: "DevBay offers a complete range of IT and AI-driven services, including Web, App, and Software Development, Cloud Solutions, Data Analytics, and Cybersecurity. The company also provides ready-made IT systems such as CRM, ERP, LMS, HMS, SMS, and RMS, empowering businesses with smart, scalable, and high-performance digital solutions." },
+  { q: "what is web development", a: "At DevBay, we empower businesses with intelligent and beautifully designed web solutions. Our focus is on seamless design, smooth performance, and creating a lasting impact for every client." },
+  { q: "what is app development", a: "Your app is more than just software — it’s your brand in the palm of your user’s hand. At DevBay, we create mobile applications that blend innovation with impact, ensuring smooth performance, elegant design, and real-world functionality." },
+  { q: "what is software development", a: "Every business deserves software that works for them — not against them. At DevBay, we craft intelligent, user-friendly, and secure software solutions that drive productivity and growth." },
+  { q: "what is data analytics", a: "Every number tells a story — and at DevBay, we help you understand it. Our team specializes in collecting, analyzing, and visualizing complex data to reveal patterns that drive success." },
+  { q: "what is cloud solutions", a: "The future of business is in the cloud — and DevBay makes that future seamless. We provide tailored cloud solutions that enable you to store, scale, and access data effortlessly while maintaining top-tier security and performance." },
+  { q: "what is cyber security", a: "At DevBay, we protect what matters most — your data, your systems, and your reputation. Our comprehensive cybersecurity solutions safeguard your digital assets from evolving threats." },
+  { q: "does devbay build ai chatbots", a: "Yes, intelligent chatbots using NLP and RAG systems." },
+  { q: "does devbay provide seo", a: "Yes, to improve online visibility and traffic." },
 
-    // ------------------- Technology & Process -------------------
-  { q:  "What technologies does DevBay use?", a: "Python, React, Node.js, Django, Laravel, Flutter, TensorFlow, AWS, Azure."},
-  { q:  "Does DevBay provide AI development?", a: "Yes, custom AI systems for chatbots, analytics, computer vision, and automation."},
-  { q:  "Does DevBay provide cloud deployment?", a: "Yes, deploy apps to AWS, Azure, or Google Cloud for scalability."},
-  { q:  "Does DevBay build custom chatbots?", a: "Yes, using NLP and RAG-based systems."},
-  { q: "How long does a project take?", a: "2 weeks for MVPs to 6 months for enterprise systems."},
-  { q:  "How does DevBay ensure quality?", a: "Agile, QA testing, sprints, feedback, automation tools."},
-  { q:  "Does DevBay offer maintenance?", a: "Yes, continuous post-launch support and updates."},
-  { q:  "Does DevBay offer training?", a: "Yes, training sessions for clients on deployed systems."},
-  { q:  "How can I request a quote?", a: "Contact info@devbay.ai or use the website form."},
-  { q:  "What is DevBay pricing model?", a: "Hourly, fixed-cost, and dedicated resource models."},
-  { q:  "Does DevBay sign NDA?", a: "Yes, to protect client data and ideas."},
+  // ------------------- Technology & Process -------------------
+  { q: "what technologies does devbay use", a: "Python, React, Node.js, Django, Laravel, Flutter, TensorFlow, AWS, Azure." },
+  { q: "does devbay provide ai development", a: "Yes, custom AI systems for chatbots, analytics, computer vision, and automation." },
+  { q: "does devbay provide cloud deployment", a: "Yes, deploy apps to AWS, Azure, or Google Cloud for scalability." },
+  { q: "does devbay build custom chatbots", a: "Yes, using NLP and RAG-based systems." },
+  { q: "how long does a project take", a: "2 weeks for MVPs to 6 months for enterprise systems." },
+  { q: "how does devbay ensure quality", a: "Agile, QA testing, sprints, feedback, automation tools." },
+  { q: "does devbay offer maintenance", a: "Yes, continuous post-launch support and updates." },
+  { q: "does devbay offer training", a: "Yes, training sessions for clients on deployed systems." },
+  { q: "how can i request a quote", a: "Contact info@devbay.ai or use the website form." },
+  { q: "what is devbay pricing model", a: "Hourly, fixed-cost, and dedicated resource models." },
+  { q: "does devbay sign nda", a: "Yes, to protect client data and ideas." },
 
-    // ------------------- Projects -------------------
-  { q:  "What is Malfex?", a: "PROJECT ORIGIN: DUBAI, UAE - Malfex is a groundbreaking forex trading platform that has revolutionized the industry by offering its users a unique advantage: zero trading fees. By eliminating trading fees, Malfex empowers traders of all levels to execute transactions without worrying about unnecessary costs eating into their profits. With a user friendly interface, cutting-edge technology, and a vast array of currency pairs to choose from, Malfex has quickly become the go-to platform for forex enthusiasts seeking transparency and affordability in their trading journey. Whether you’re a seasoned trader or a novice just entering the market, Malfex provides an exceptional trading experience that puts its users’ financial success at the forefront."},
-  { q:  "What is CSD?", a: "PROJECT ORIGIN: ISLAMABAD/RAWALPINDI, PAKISTAN - CSD is the second largest retail store in Pakistan, has taken a significant leap forward in optimizing its business processes with the introduction of an innovative E-Commerce store and a robust retail management system. This strategic move aims to enhance the customer experience by providing a seamless online shopping platform while streamlining internal operations. The implementation of this cutting-edge technology reflects CSD’s commitment to staying at the forefront of retail innovation, ensuring that customers can access a wide range of products conveniently, while also bolstering the company’s overall performance and growth."},
-  { q:  "What is Dialboxx?", a: "PROJECT ORIGIN: KARACHI - PAKISTAN, Dialboxx is a highly anticipated localized version of Shopify specifically tailored for the Pakistani market. It serves as an all-in-one e-commerce platform that empowers entrepreneurs and businesses to effortlessly set up, manage, and grow their online stores. Dialboxx offers a seamless and user-friendly experience for anyone who wants to launch their own Online E-Commerce Store. From secure payment gateways to customizable storefronts and localized delivery system, Dialboxx aims to revolutionize the way online businesses operate in Pakistan, enabling them to reach a wider audience and thrive in the digital era."},
-  { q:  "What is Craftsconnect?", a: "PROJECT ORIGIN: TORONTO, CANADA - Craftsconnect is your ultimate solution for seamless home services in Toronto. With a simple tap, the innovative app connects you directly with trusted and skilled service providers, ensuring that your home projects are handled by professionals who understand your needs. Say goodbye to the hassle of finding reliable experts for your household tasks. Craftsconnect brings the power of convenience to your fingertips. Need a plumber, electrician, painter, or any other home service? The application offers an extensive network of experienced professionals ready to cater to your requirements."},
-  { q:  "What is Mr Daze?", a: "PROJECT ORIGIN: RIYADH, SAUDI ARABIA - Navigate the app with simplicity and speed. Just choose what you need, set your delivery location, and watch as MrDaze takes care of the rest. From perishable goods to fragile packages, MrDaze takes pride in ensuring your deliveries arrive in the same condition they left. MrDaze isn’t just about deliveries – it’s about creating a seamless experience. Track your orders in real-time, receive notifications, and communicate directly with your delivery partner, all within the app. This level of transparency keeps you in the loop every step of the way."},
-  { q:  "What is Kryptoconnect?", a: "PROJECT ORIGIN: BOSTON, USA - Kryptoconnect is an innovative and user-centric application designed to streamline and enhance your cryptocurrency investment journey. Seamlessly combining advanced portfolio management features with peer-to-peer (P2P) trading capabilities, Krptoconnect empowers users to navigate the dynamic world of cryptocurrencies with confidence and ease. With Krptoconnect’s comprehensive portfolio management tools, you can effortlessly monitor your crypto holdings, track their performance in real-time, and gain valuable insights through intuitive visualizations."},
+  // ------------------- Projects -------------------
+  { q: "what is malfex", a: "PROJECT ORIGIN: DUBAI, UAE - Malfex is a groundbreaking forex trading platform that has revolutionized the industry by offering its users a unique advantage: zero trading fees. By eliminating trading fees, Malfex empowers traders of all levels to execute transactions without worrying about unnecessary costs eating into their profits." },
+  { q: "what is csd", a: "PROJECT ORIGIN: ISLAMABAD/RAWALPINDI, PAKISTAN - CSD is the second largest retail store in Pakistan and has launched an E-Commerce store and robust retail management system to enhance customer experience and internal operations." },
+  { q: "what is dialboxx", a: "PROJECT ORIGIN: KARACHI - PAKISTAN, Dialboxx is a localized version of Shopify specifically tailored for the Pakistani market, enabling entrepreneurs to create and manage online stores with localized payment and delivery integrations." },
+  { q: "what is craftsconnect", a: "PROJECT ORIGIN: TORONTO, CANADA - Craftsconnect is a home services app connecting users with trusted service providers for tasks like plumbing, electrical, painting, and more." },
+  { q: "what is mr daze", a: "PROJECT ORIGIN: RIYADH, SAUDI ARABIA - Mr Daze is an on-demand delivery app providing real-time tracking, notifications, and reliable delivery for a wide range of goods." },
+  { q: "what is kryptoconnect", a: "PROJECT ORIGIN: BOSTON, USA - Kryptoconnect is an application for cryptocurrency portfolio management with peer-to-peer trading features and real-time analytics." },
 
-    // ------------------- Ready-Made Solutions -------------------
-  { q:  "Tell me about DevBay ready-made solutions?", a: "DevBay’s Ready-Made Solutions are intelligent, fully developed IT systems tailored for instant deployment across industries. From CRM, ERP, and LMS to Hospital, School, and Restaurant Management Systems, each solution is built for efficiency, scalability, and seamless performance. Designed to save time and optimize operations, DevBay’s solutions empower businesses to go digital — faster and smarter."},
-  { q:  "What is DevBay CRM?", a: "DevBay CRM is an intelligent, all-in-one customer relationship management solution designed to streamline your business operations and strengthen customer connections. Built with automation, analytics, and AI-driven insights at its core, our CRM helps you manage leads, track sales, monitor performance, and enhance customer satisfaction — all from a single, intuitive dashboard."},
-  { q:  "What modules are in DevBay CRM?", a: "Lead Management, Contact Management, Deals, Tasks, Email Marketing, Reporting."},
-  { q:  "Does DevBay CRM support WhatsApp or email?", a: "Yes, integrates with WhatsApp API, Gmail, Outlook."},
-  { q:  "Can DevBay CRM track customer history?", a: "Yes, all activities are logged and viewable by authorized users."},
-  { q:  "What is DevBay ERP?", a: "With real-time analytics, seamless integrations, and user-friendly dashboards, DevBay ERP enables smarter decision-making and improved productivity across every level of your business. Whether you’re a growing company or a large enterprise, our customizable ERP adapts to your workflow, helping you reduce costs, eliminate redundancy, and drive sustainable growth."},
-  { q:  "Does DevBay ERP include analytics?", a: "Yes, advanced dashboards for business performance."},
-  { q:  "Can DevBay ERP be integrated with CRM?", a: "Yes, CRM and ERP work together for unified workflows."},
-  { q:  "Is DevBay ERP multi-branch compatible?", a: "Yes, supports multiple locations."},
-  { q:  "What is DevBay LMS?", a: "DevBay LMS is an advanced, cloud-powered learning management system designed to transform the way organizations, institutes, and enterprises deliver education and training. Built with flexibility, scalability, and engagement in mind, it empowers administrators to manage courses, track learner progress, and deliver interactive learning experiences anytime, anywhere."},
-  { q:  "Does DevBay LMS support live classes?", a: "Yes, integrates Zoom, Google Meet, Teams."},
-  { q:  "Can DevBay LMS auto-grade quizzes?", a: "Yes, instant feedback on quizzes/assignments."},
-  { q:  "Does DevBay LMS issue certificates?", a: "Yes, digital certificates generated automatically."},
-  { q:  "What is DevBay Hospital Management System?", a: "DevBay HMS is a comprehensive healthcare management solution designed to digitize, streamline, and enhance hospital operations. From patient registration and appointment scheduling to billing, pharmacy, laboratory, and electronic health records — our HMS connects every department through one intelligent, centralized platform - Patient management, billing, insurance, doctor scheduling, HIPAA-compliant."},
-  { q:  "Does DevBay HMS handle billing and insurance?", a: "Yes, includes billing, insurance claims, and payments."},
-  { q:  "Can DevBay HMS manage doctor schedules?", a: "Yes, doctors can manage appointments and shifts."},
-  { q:  "Is DevBay HMS HIPAA compliant?", a: "Yes."},
-  { q:  "What is DevBay School Management System?", a: "DevBay SMS is a smart and fully integrated platform designed to simplify and automate every aspect of school administration. From student enrollment, attendance, and examinations to teacher management, parent communication, and fee collection — our system connects all stakeholders through one powerful digital solution. - Manage admissions, attendance, grades, parent portal, fee collection, teacher analytics."},
-  { q:  "Does DevBay SMS support parent portals?", a: "Yes, parents can view attendance, grades, announcements."},
-  { q:  "Does DevBay SMS include fee management?", a: "Yes, automated fee collection and reporting."},
-  { q:  "Can DevBay SMS manage teacher performance?", a: "Yes, performance analytics available."},
-  { q:  "What is DevBay Property Management System?", a: "Built for property owners, real estate agencies, and facility managers, DevBay PMS enhances transparency, reduces manual effort, and improves operational efficiency. With smart dashboards, automated reminders, and real-time insights, managing multiple properties becomes effortless and organized. At DevBay, we deliver intelligent property management systems that help you save time, maximize returns, and grow with confidence."},
-  { q:  "Can DevBay PMS handle rent invoices?", a: "Yes, auto-generates invoices and receipts."},
-  { q:  "Does DevBay PMS support tenant portals?", a: "Yes, tenants can view rent history and submit requests."},
-  { q:  "Is DevBay PMS cloud-based?", a: "Yes, accessible from anywhere."},
-  { q:  "What is DevBay Restaurant Management System?", a: "DevBay RMS is a modern, all-in-one solution built to simplify and automate restaurant operations. From order management, billing, and table reservations to inventory tracking, kitchen coordination, and staff scheduling — our system connects every part of your restaurant under one intelligent platform. - menu, kitchen operations, online orders, sales analytics."},
-  { q:  "Does DevBay RMS support POS?", a: "Yes, for dine-in, delivery, takeaway."},
-  { q:  "Can DevBay RMS manage online orders?", a: "Yes, integrates with delivery apps and websites."},
-  { q:  "Does DevBay RMS include analytics?", a: "Yes, dashboards available for owners."},
-  { q:  "Are ready-made solutions customizable?", a: "Yes, branding, modules, business rules can be tailored."},
-  { q:  "Do ready-made systems include AI?", a; "Yes, dashboards, chatbots, predictive reports."},
-  { q:  "How long does deployment take?", a: "3–10 business days depending on customization."},   
+  // ------------------- Ready-Made Solutions (complete) -------------------
+  { q: "tell me about devbay ready-made solutions", a: "DevBay’s Ready-Made Solutions are intelligent, fully developed IT systems tailored for instant deployment across industries. From CRM, ERP, and LMS to Hospital, School, and Restaurant Management Systems, each solution is built for efficiency, scalability, and seamless performance." },
+  { q: "what is devbay crm", a: "DevBay CRM is an intelligent, all-in-one customer relationship management solution designed to streamline your business operations and strengthen customer connections. Built with automation, analytics, and AI-driven insights at its core." },
+  { q: "what modules are in devbay crm", a: "Lead Management, Contact Management, Deals, Tasks, Email Marketing, Reporting." },
+  { q: "does devbay crm support whatsapp or email", a: "Yes, integrates with WhatsApp API, Gmail, Outlook." },
+  { q: "can devbay crm track customer history", a: "Yes, all activities are logged and viewable by authorized users." },
+  { q: "what is devbay erp", a: "With real-time analytics, seamless integrations, and user-friendly dashboards, DevBay ERP enables smarter decision-making and improved productivity across every level of your business." },
+  { q: "does devbay erp include analytics", a: "Yes, advanced dashboards for business performance." },
+  { q: "can devbay erp be integrated with crm", a: "Yes, CRM and ERP work together for unified workflows." },
+  { q: "is devbay erp multi-branch compatible", a: "Yes, supports multiple locations." },
+  { q: "what is devbay lms", a: "DevBay LMS is an advanced, cloud-powered learning management system designed to transform how organizations deliver education and training. It supports courses, tracking, live classes, and certifications." },
+  { q: "does devbay lms support live classes", a: "Yes, integrates Zoom, Google Meet, Teams." },
+  { q: "can devbay lms auto-grade quizzes", a: "Yes, instant feedback on quizzes/assignments." },
+  { q: "does devbay lms issue certificates", a: "Yes, digital certificates generated automatically." },
+  { q: "what is devbay hospital management system", a: "DevBay HMS is a comprehensive healthcare management solution designed to digitize hospital operations. It covers patient registration, appointment scheduling, billing, pharmacy, laboratory, and electronic health records." },
+  { q: "does devbay hms handle billing and insurance", a: "Yes, includes billing, insurance claims, and payments." },
+  { q: "can devbay hms manage doctor schedules", a: "Yes, doctors can manage appointments and shifts." },
+  { q: "is devbay hms hipaa compliant", a: "Yes." },
+  { q: "what is devbay school management system", a: "DevBay SMS is a fully integrated platform for school administration including enrollment, attendance, exams, teacher management, parent communication, and fee collection." },
+  { q: "does devbay sms support parent portals", a: "Yes, parents can view attendance, grades, announcements." },
+  { q: "does devbay sms include fee management", a: "Yes, automated fee collection and reporting." },
+  { q: "can devbay sms manage teacher performance", a: "Yes, performance analytics available." },
+  { q: "what is devbay property management system", a: "Built for property owners, real estate agencies, and facility managers, DevBay PMS enhances transparency and automates rent, maintenance, and reporting." },
+  { q: "can devbay pms handle rent invoices", a: "Yes, auto-generates invoices and receipts." },
+  { q: "does devbay pms support tenant portals", a: "Yes, tenants can view rent history and submit requests." },
+  { q: "is devbay pms cloud-based", a: "Yes, accessible from anywhere." },
+  { q: "what is devbay restaurant management system", a: "DevBay RMS automates restaurant operations: order management, billing, reservations, inventory tracking, kitchen coordination, and staff scheduling." },
+  { q: "does devbay rms support pos", a: "Yes, for dine-in, delivery, takeaway." },
+  { q: "can devbay rms manage online orders", a: "Yes, integrates with delivery apps and websites." },
+  { q: "does devbay rms include analytics", a: "Yes, dashboards available for owners." },
+  { q: "are ready-made solutions customizable", a: "Yes, branding, modules, and business rules can be tailored to customer needs." },
+  { q: "do ready-made systems include ai", a: "Yes, dashboards, chatbots, predictive reports, and AI-driven analytics are included where applicable." },
+  { q: "how long does deployment take", a: "3–10 business days depending on customization." }
 ];
-/ ========================
+
+// ========================
 // Helper Functions
 // ========================
 function normalize(text) {
-  return text.toLowerCase().replace(/[^\w\s]/gi, "").trim();
+  return String(text || "").toLowerCase().replace(/[^\w\s]/gi, "").trim();
 }
 
 function fuzzyScore(input, target) {
   input = normalize(input);
   target = normalize(target);
+  if (!input) return 0;
   if (target.includes(input)) return 1;
-  const inputTokens = input.split(" ");
-  const targetTokens = target.split(" ");
+  const inputTokens = input.split(/\s+/);
+  const targetTokens = target.split(/\s+/);
   let matchCount = 0;
   inputTokens.forEach(t => { if (targetTokens.includes(t)) matchCount++; });
-  return matchCount / inputTokens.length;
+  return matchCount / Math.max(1, inputTokens.length);
+}
+
+function getFallbackResponse() {
+  const fallbacks = [
+    "I'm sorry, I don't have information about that yet.",
+    "Could you rephrase your question? I’ll try to understand better.",
+    "That’s an interesting question! Please contact info@devbay.ai for more details.",
+    "I don’t have that on file — try asking about our services, products, or projects."
+  ];
+  return fallbacks[Math.floor(Math.random() * fallbacks.length)];
 }
 
 function findAnswer(query) {
-  let bestMatch = { score: 0, answer: "Sorry, I don't understand your question." };
-  qaPairs.forEach(pair => {
-    const score = fuzzyScore(query, pair.q);
-    if (score > bestMatch.score) bestMatch = { score, answer: pair.a };
+  let best = { score: 0, answer: null };
+  qaData.forEach(item => {
+    const score = fuzzyScore(query, item.q);
+    if (score > best.score) best = { score, answer: item.a };
   });
-  return bestMatch.answer;
+  if (best.score < 0.35) return getFallbackResponse();
+  return best.answer;
 }
 
 // ========================
-// Typewriter + Auto Scroll
+// DOM & Chat behavior
 // ========================
-function typeAnswer(text, element) {
-  element.innerHTML = "";
+const chatArea = document.getElementById("chat-area");
+const userInput = document.getElementById("user-input");
+const sendBtn = document.getElementById("send-btn");
+const chatbotBox = document.getElementById("chatbot-box");
+const chatbotToggle = document.getElementById("chatbot-toggle");
+
+// Toggle popup open/close
+chatbotToggle.addEventListener("click", () => {
+  chatbotBox.style.display = chatbotBox.style.display === "flex" ? "none" : "flex";
+  if (chatbotBox.style.display === "flex") chatArea.scrollTop = chatArea.scrollHeight;
+});
+
+// Utility to append message and auto-scroll
+function appendMessage(text, sender) {
+  const div = document.createElement("div");
+  div.className = `message ${sender}`;
+  div.textContent = text;
+  chatArea.appendChild(div);
+  // keep latest visible while typing (smooth)
+  chatArea.scrollTop = chatArea.scrollHeight;
+}
+
+// typewriter-style bot reply (follows scroll)
+function botReply(text) {
+  const div = document.createElement("div");
+  div.className = "message bot";
+  chatArea.appendChild(div);
   let i = 0;
+  const speed = 22; // ms per char
   const interval = setInterval(() => {
-    element.innerHTML += text.charAt(i);
+    div.textContent += text.charAt(i) || "";
     i++;
-    chatBox.scrollTop = chatBox.scrollHeight; // auto scroll down
-    if (i >= text.length) clearInterval(interval);
-  }, 25);
+    chatArea.scrollTop = chatArea.scrollHeight;
+    if (i > text.length) clearInterval(interval);
+  }, speed);
 }
 
-// ========================
-// DOM Elements
-// ========================
-const inputBox = document.getElementById("userInput");
-const submitBtn = document.getElementById("sendBtn");
-const chatBox = document.getElementById("chat-body");
-const chatbotBtn = document.getElementById("chatbot-btn");
-const chatbotContainer = document.getElementById("chatbot-container");
-const closeBtn = document.getElementById("close-chat");
+// Send handler
+function sendMessage() {
+  const txt = (userInput.value || "").trim();
+  if (!txt) return;
+  appendMessage(txt, "user");
+  userInput.value = "";
+  userInput.focus();
 
-// ========================
-// Popup Toggle
-// ========================
-chatbotBtn.addEventListener("click", () => {
-  chatbotContainer.style.display = "flex";
-  chatbotBtn.style.display = "none";
-  chatBox.scrollTop = chatBox.scrollHeight;
-});
+  // find answer and reply with slight delay to feel natural
+  setTimeout(() => {
+    const ans = findAnswer(txt);
+    botReply(ans);
+  }, 300);
+}
 
-closeBtn.addEventListener("click", () => {
-  chatbotContainer.style.display = "none";
-  chatbotBtn.style.display = "flex";
-});
+sendBtn.addEventListener("click", sendMessage);
+userInput.addEventListener("keypress", (e) => { if (e.key === "Enter") sendMessage(); });
 
-// ========================
-// Send Message
-// ========================
-submitBtn.addEventListener("click", () => {
-  const userText = inputBox.value.trim();
-  if (!userText) return;
+// ensure chat box initial display state
+if (!chatbotBox.style.display) chatbotBox.style.display = "none";
 
-  const userDiv = document.createElement("div");
-  userDiv.className = "userMsg";
-  userDiv.textContent = userText;
-  chatBox.appendChild(userDiv);
-
-  const botDiv = document.createElement("div");
-  botDiv.className = "botMsg";
-  chatBox.appendChild(botDiv);
-
-  const answerText = findAnswer(userText);
-  typeAnswer(answerText, botDiv);
-
-  inputBox.value = "";
-  inputBox.focus();
-  chatBox.scrollTop = chatBox.scrollHeight;
-});
-
-inputBox.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") submitBtn.click();
-});
 
 
