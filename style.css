@@ -45,10 +45,12 @@ body {
 .chatbot-header {
   background: #2563eb;
   color: white;
-  text-align: center;
-  padding: 12px;
-  font-weight: 600;
+  text-align: left; /* ✅ aligned left */
+  padding: 14px 18px;
+  font-weight: 700; /* ✅ bold */
   font-size: 18px;
+  letter-spacing: 2px; /* ✅ extra space between letters */
+  word-spacing: 8px; /* ✅ clear wide name spacing */
 }
 
 /* --- Chat Area --- */
