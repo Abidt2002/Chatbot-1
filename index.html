@@ -3,23 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DevBay Chatbot</title>
+  <title>Devbay Assistant</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="chatbot-container">
-    <button id="chatbot-toggle">💬</button>
-    <div class="chatbot-box" id="chatbot-box">
-      <div class="chat-header">DevBay Chatbot</div>
-      <div class="chat-area" id="chat-area"></div>
-      <div class="input-area">
-        <input type="text" id="user-input" placeholder="Ask something..." />
-        <button id="send-btn">Send</button>
-      </div>
+  <div id="chatbot-btn">💬</div>
+
+  <div id="chatbot-container">
+    <div id="chat-header">
+      <strong style="letter-spacing: 4px;">Devbay Assistant</strong>
+      <button id="close-chat">✖</button>
+    </div>
+    <div id="chat-body"></div>
+    <div id="chat-footer">
+      <input type="text" id="userInput" placeholder="Type your message..." />
+      <button id="sendBtn">Send</button>
     </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
