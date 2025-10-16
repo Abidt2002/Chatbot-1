@@ -7,20 +7,25 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="chatbot-btn">💬</div>
+  <!-- Chatbot Toggle Button -->
+  <div id="chatbot-toggle" title="Open Chatbot">💬</div>
 
-  <div id="chatbot-container">
+  <!-- Chatbot Box -->
+  <div id="chatbot-box">
     <div id="chat-header">
-      <strong class="bot-name">Devbay Assistant/strong>
-      <button id="close-chat">✖</button>
+      <strong class="bot-name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Devbay Assistant</strong>
+      <button id="close-chat" title="Close Chat">✖</button>
     </div>
-    <div id="chat-body"></div>
+
+    <div id="chat-area"></div>
+
     <div id="chat-footer">
-      <input type="text" id="userInput" placeholder="Type your message..." />
-      <button id="sendBtn">Send</button>
+      <input type="text" id="user-input" placeholder="Type your message..." />
+      <button id="send-btn">Send</button>
     </div>
   </div>
 
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
