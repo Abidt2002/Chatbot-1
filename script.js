@@ -119,7 +119,7 @@ function findAnswer(query) {
 }
 
 // ========================
-// DOM & Chat behavior
+// DOM Elements
 // ========================
 const chatArea = document.getElementById("chat-area");
 const userInput = document.getElementById("user-input");
@@ -127,38 +127,45 @@ const sendBtn = document.getElementById("send-btn");
 const chatbotBox = document.getElementById("chatbot-box");
 const chatbotToggle = document.getElementById("chatbot-toggle");
 
-// Toggle popup open/close
+// ========================
+// Chatbot Toggle (Popup)
+// ========================
 chatbotToggle.addEventListener("click", () => {
-  chatbotBox.style.display = chatbotBox.style.display === "flex" ? "none" : "flex";
-  if (chatbotBox.style.display === "flex") chatArea.scrollTop = chatArea.scrollHeight;
+  const isVisible = chatbotBox.style.display === "flex";
+  chatbotBox.style.display = isVisible ? "none" : "flex";
+  if (!isVisible) {
+    setTimeout(() => chatArea.scrollTop = chatArea.scrollHeight, 100);
+  }
 });
 
-// Utility to append message and auto-scroll
+// ========================
+// Message Handling
+// ========================
 function appendMessage(text, sender) {
   const div = document.createElement("div");
   div.className = `message ${sender}`;
   div.textContent = text;
   chatArea.appendChild(div);
-  // keep latest visible while typing (smooth)
   chatArea.scrollTop = chatArea.scrollHeight;
 }
 
-// typewriter-style bot reply (follows scroll)
 function botReply(text) {
   const div = document.createElement("div");
   div.className = "message bot";
   chatArea.appendChild(div);
   let i = 0;
-  const speed = 22; // ms per char
+  const speed = 22; // typing speed (ms)
   const interval = setInterval(() => {
     div.textContent += text.charAt(i) || "";
     i++;
-    chatArea.scrollTop = chatArea.scrollHeight;
+    chatArea.scrollTop = chatArea.scrollHeight; // always scroll to bottom
     if (i > text.length) clearInterval(interval);
   }, speed);
 }
 
-// Send handler
+// ========================
+// Send Message Function
+// ========================
 function sendMessage() {
   const txt = (userInput.value || "").trim();
   if (!txt) return;
@@ -166,18 +173,19 @@ function sendMessage() {
   userInput.value = "";
   userInput.focus();
 
-  // find answer and reply with slight delay to feel natural
   setTimeout(() => {
     const ans = findAnswer(txt);
     botReply(ans);
-  }, 300);
+  }, 400);
 }
 
 sendBtn.addEventListener("click", sendMessage);
-userInput.addEventListener("keypress", (e) => { if (e.key === "Enter") sendMessage(); });
+userInput.addEventListener("keypress", (e) => { 
+  if (e.key === "Enter") sendMessage();
+});
 
-// ensure chat box initial display state
+// ========================
+// Default State
+// ========================
 if (!chatbotBox.style.display) chatbotBox.style.display = "none";
-
-
 
