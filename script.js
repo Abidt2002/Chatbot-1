@@ -3,7 +3,7 @@
 // ========================
 const qaPairs = [
   { q: "what is Devbay", a: "Devbay Technologies is a global IT company that builds modern digital solutions, software, and automation systems to empower businesses worldwide." },
-  { q: "where is Devbay located", a: "Devbay operates globally with key offices in Pakistan, the Middle East, the United Kingdom, and North America." },
+  { q: "where is Devbay located", a: "GET IN TOUCH - Karachi Office (Building 17C, Zamzama Commercial Lane no. 9, Phase V, DHA, Karachi, Pakistan), Islamabad Office (Plot 250 Street 6, I-9/2,Islamabad), Dubai Office (Office 104, 54 Al Maktoum Road, Deira, Al Masaood Tower, Dubai, United Arab Emirates), International Office ( 867 Boylston Street, 5th Floor Boston, MA 02116)." },
   { q: "what services Devbay provide", a: "Devbay offers App Development, Software Development, Data Analysis, Cyber Security, Cloud Solutions, SEO, Call Center Services, and Game Development." },
   { q: "Who is the CEO of Devbay?", a: "CEO: Azam Khan, COO: Arham Hashmi — leaders in technology and innovation."},
   { q: "What is Devbay mission?", a: "Devbay was founded with a vision to build revolutionary technology applications capable of significantly enhancing efficiency through automation and seamless customer engagement."},
