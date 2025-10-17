@@ -23,6 +23,26 @@
       <button id="sendBtn">Send</button>
     </div>
   </div>
+  // Typing animation for welcome message
+      function typeWelcomeMessage() {
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("bot-message");
+        chatBody.appendChild(messageDiv);
+
+        const text = "💡 Innovation starts with a conversation. Let’s build something extraordinary together — welcome to DevBay!";
+        let index = 0;
+
+        function type() {
+          if (index < text.length) {
+            messageDiv.innerHTML = text.substring(0, index + 1);
+            index++;
+            setTimeout(type, 30);
+          }
+        }
+
+        type();
+      }
+                      
 
   <script src="script.js"></script>
 </body>
