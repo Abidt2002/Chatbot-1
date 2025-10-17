@@ -17,45 +17,23 @@
       <span>Devbay Assistant</span>
       <span id="close-chat">✖</span>
     </div>
-    <div id="chat-body"></div>
+
+    <!-- Chat Body -->
+    <div id="chat-body">
+      <!-- Default Welcome Message -->
+      <div class="bot-message">
+        💡 Innovation starts with a conversation.<br>
+        Let’s build something extraordinary together — welcome to <strong>DevBay!</strong>
+      </div>
+    </div>
+
+    <!-- Chat Input -->
     <div id="chat-input">
       <input type="text" id="userInput" placeholder="Type your question...">
       <button id="sendBtn">Send</button>
     </div>
   </div>
-
-  // Typing animation for welcome message
-      function typeWelcomeMessage() {
-        const messageDiv = document.createElement("div");
-        messageDiv.classList.add("bot-message");
-        chatBody.appendChild(messageDiv);
-
-        const text = "💡 Innovation starts with a conversation. Let’s build something extraordinary together — welcome to DevBay!";
-        let index = 0;
-
-        function type() {
-          if (index < text.length) {
-            messageDiv.innerHTML = text.substring(0, index + 1);
-            index++;
-            setTimeout(type, 30);
-          }
-        }
-
-        type();
-      }
-
-      // Add user message with animation
-      function appendUserMessage(message) {
-        const userDiv = document.createElement("div");
-        userDiv.classList.add("user-message");
-        userDiv.textContent = message;
-        chatBody.appendChild(userDiv);
-      }
-    });
-  </script>
- 
-                      
-
+            
   <script src="script.js"></script>
 </body>
 </html>
