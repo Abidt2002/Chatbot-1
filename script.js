@@ -137,7 +137,20 @@ const closeBtn = document.getElementById("close-chat");
 chatbotBtn.addEventListener("click", () => {
     chatbotContainer.style.display = "flex";
     chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom on open
+
+    // Clear previous messages (optional)
+    chatBox.innerHTML = "";
+
+    // Show welcome message only inside chatbot
+    const welcomeDiv = document.createElement("div");
+    welcomeDiv.className = "botMsg";
+    typeAnswer(
+        "💡 Innovation starts with a conversation. Let’s build something extraordinary together — welcome to DevBay!",
+        welcomeDiv
+    );
+    chatBox.appendChild(welcomeDiv);
 });
+
 closeBtn.addEventListener("click", () => { chatbotContainer.style.display = "none"; });
 
 // ========================
@@ -171,5 +184,4 @@ submitBtn.addEventListener("click", () => {
 inputBox.addEventListener("keypress", (e) => {
     if (e.key === "Enter") submitBtn.click();
 });
-
 
