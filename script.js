@@ -145,7 +145,7 @@ chatbotBtn.addEventListener("click", () => {
     const welcomeDiv = document.createElement("div");
     welcomeDiv.className = "botMsg";
     typeAnswer(
-        "💡 Innovation starts with a conversation. Let’s build something extraordinary together — welcome to DevBay!",
+        "💡 Innovation starts with a conversation. Let’s build something extraordinary together — welcome to Devbay!",
         welcomeDiv
     );
     chatBox.appendChild(welcomeDiv);
