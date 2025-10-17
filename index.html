@@ -23,6 +23,7 @@
       <button id="sendBtn">Send</button>
     </div>
   </div>
+
   // Typing animation for welcome message
       function typeWelcomeMessage() {
         const messageDiv = document.createElement("div");
@@ -42,6 +43,17 @@
 
         type();
       }
+
+      // Add user message with animation
+      function appendUserMessage(message) {
+        const userDiv = document.createElement("div");
+        userDiv.classList.add("user-message");
+        userDiv.textContent = message;
+        chatBody.appendChild(userDiv);
+      }
+    });
+  </script>
+ 
                       
 
   <script src="script.js"></script>
